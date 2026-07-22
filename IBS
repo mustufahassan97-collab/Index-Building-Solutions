@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INDEX | Next-Gen Building Solutions & Architectural Engineering</title>
+
+  <!-- Google Fonts: Orbitron (Futuristic Display) & Rajdhani (Technical Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --------------------------------------------------
+       FUTURISTIC CORE STYLES & VARIABLES
+    -------------------------------------------------- */
+    :root {
+      --bg-dark: #070a12;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(24, 37, 66, 0.85);
+      --cyan-glow: #00f0ff;
+      --amber-glow: #ffaa00;
+      --blue-accent: #3b82f6;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-glow: rgba(0, 240, 255, 0.25);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --font-heading: 'Orbitron', sans-serif;
+      --font-body: 'Rajdhani', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Blueprint Background Grid */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    /* --------------------------------------------------
+       LAYOUT & CONTAINER
+    -------------------------------------------------- */
+    .container {
+      width: 90%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    /* --------------------------------------------------
+       CYBER NAVIGATION HEADER
+    -------------------------------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7, 10, 18, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 12px;
+      height: 12px;
+      background-color: var(--cyan-glow);
+      box-shadow: 0 0 10px var(--cyan-glow);
+      transform: rotate(45deg);
+    }
+
+    .logo span {
+      color: var(--cyan-glow);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan-glow);
+      text-shadow: 0 0 8px var(--cyan-glow);
+    }
+
+    .btn-cyber {
+      position: relative;
+      padding: 0.7rem 1.8rem;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--cyan-glow);
+      background: rgba(0, 240, 255, 0.05);
+      border: 1px solid var(--cyan-glow);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    }
+
+    .btn-cyber:hover {
+      background: var(--cyan-glow);
+      color: var(--bg-dark);
+      box-shadow: 0 0 25px var(--cyan-glow);
+    }
+
+    /* --------------------------------------------------
+       HERO SECTION WITH CANVAS & TELEMETRY
+    -------------------------------------------------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 8rem;
+    }
+
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      color: var(--amber-glow);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(255, 170, 0, 0.1);
+      border: 1px solid rgba(255, 170, 0, 0.3);
+      border-radius: 20px;
+    }
+
+    .tagline-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--amber-glow);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--amber-glow);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.4); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 3.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffffff 30%, var(--cyan-glow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 650px;
+    }
+
+    .telemetry-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .telemetry-item h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--cyan-glow);
+    }
+
+    .telemetry-item p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* --------------------------------------------------
+       GLASSMORPHISM SERVICES & CARDS
+    -------------------------------------------------- */
+    .section-title {
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-title h2::before {
+      content: '';
+      width: 4px;
+      height: 30px;
+      background: var(--cyan-glow);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      padding: 2.5rem;
+      position: relative;
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan-glow), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .glass-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      color: var(--amber-glow);
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .glass-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .glass-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* --------------------------------------------------
+       BLUEPRINT & ARCHITECTURE SHOWCASE
+    -------------------------------------------------- */
+    .blueprint-box {
+      background: rgba(10, 20, 38, 0.8);
+      border: 1px solid var(--border-glow);
+      padding: 3rem;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.05);
+    }
+
+    .blueprint-graphic {
+      width: 100%;
+      height: 300px;
+      border: 1px dashed var(--cyan-glow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+    }
+
+    .blueprint-graphic::after {
+      content: 'SYSTEM ARCHITECTURE BLUEPRINT // [PRECISION: 0.001MM]';
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      color: var(--cyan-glow);
+      letter-spacing: 1.5px;
+    }
+
+    /* Corner Accents */
+    .corner {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--cyan-glow);
+    }
+    .top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+    .top-right { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+    .bottom-left { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+    .bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+    /* --------------------------------------------------
+       CYBERNETIC CONTACT FORM
+    -------------------------------------------------- */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .form-cyber {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      padding: 2.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      color: var(--cyan-glow);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(7, 10, 18, 0.8);
+      border: 1px solid var(--glass-border);
+      padding: 0.9rem;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--cyan-glow);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+
+    /* --------------------------------------------------
+       FOOTER
+    -------------------------------------------------- */
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 0;
+      background: rgba(4, 6, 12, 0.95);
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2.6rem; }
+      .blueprint-box, .contact-wrapper { grid-template-columns: 1fr; }
+      .telemetry-bar { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">
+          <div class="logo-badge"></div>
+          Index <span>Building Solutions</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services">// Services</a></li>
+          <li><a href="#architecture">// Engineering</a></li>
+          <li><a href="#contact">// Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-cyber">Initialize Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="container">
+      <div class="hero-content">
+        <div class="tagline">
+          <div class="tagline-dot"></div> Next-Gen Structural Intelligence
+        </div>
+        <h1>Precision Building & Modern Engineering</h1>
+        <p>Architecting resilient infrastructure, specialized engineering systems, and advanced commercial facility solutions engineered for the future.</p>
+        
+        <a href="#services" class="btn-cyber">Explore Technical Capabilities</a>
+
+        <div class="telemetry-bar">
+          <div class="telemetry-item">
+            <h3>0.001mm</h3>
+            <p>Design Precision</p>
+          </div>
+          <div class="telemetry-item">
+            <h3>100%</h3>
+            <p>Safety Compliance</p>
+          </div>
+          <div class="telemetry-item">
+            <h3>25+</h3>
+            <p>Enterprise Deployments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Core Disciplines</h2>
+      </div>
+      <div class="grid-3">
+        <div class="glass-card">
+          <div class="card-icon">// DISCIPLINE 01</div>
+          <h3>Advanced Contracting</h3>
+          <p>Next-generation civil engineering and structural framework execution designed with high-grade industrial endurance.</p>
+        </div>
+        <div class="glass-card">
+          <div class="card-icon">// DISCIPLINE 02</div>
+          <h3>MEP & Power Systems</h3>
+          <p>Integrated mechanical, electrical, earthing, and specialized fluid management setups built to strict engineering codes.</p>
+        </div>
+        <div class="glass-card">
+          <div class="card-icon">// DISCIPLINE 03</div>
+          <h3>Project Engineering</h3>
+          <p>End-to-end site oversight, procurement optimization, and automated quality control matrices for mega-structures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Blueprint Showcase -->
+  <section id="architecture">
+    <div class="container">
+      <div class="blueprint-box">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <div>
+          <div class="tagline" style="border-color: var(--cyan-glow); color: var(--cyan-glow);">
+            <div class="tagline-dot" style="background: var(--cyan-glow); box-shadow: 0 0 8px var(--cyan-glow);"></div> Architectural Standard
+          </div>
+          <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; color: #fff;">FINE ARCHITECTURE & TECHNICAL INTEGRITY</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">At Index Building Solutions, every layout and installation undergoes rigorous technical auditing. We synthesize structural beauty with extreme functional reliability.</p>
+        </div>
+
+        <div class="blueprint-graphic">
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cybernetic Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Initiate Contact</h2>
+      </div>
+      <div class="contact-wrapper">
+        <div class="form-cyber">
+          <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Transmission Received.');">
+            <div class="form-group">
+              <label for="name">Entity / Full Name</label>
+              <input type="text" id="name" required placeholder="Enter full name..." />
+            </div>
+            <div class="form-group">
+              <label for="email">Communication Channel (Email)</label>
+              <input type="email" id="email" required placeholder="name@domain.com" />
+            </div>
+            <div class="form-group">
+              <label for="message">Project Parameters / Message</label>
+              <textarea id="message" rows="4" required placeholder="Detail project requirements..."></textarea>
+            </div>
+            <button type="submit" class="btn-cyber" style="width: 100%;">Transmit Message</button>
+          </form>
+        </div>
+
+        <div style="display: flex; flex-direction: column; justify-content: center; gap: 2rem;">
+          <div class="glass-card">
+            <div class="card-icon">// LOCATION</div>
+            <h3 style="font-size: 1.1rem;">Headquarters</h3>
+            <p>Karachi, Sindh, Pakistan</p>
+          </div>
+          <div class="glass-card">
+            <div class="card-icon">// DIRECT LINE</div>
+            <h3 style="font-size: 1.1rem;">Inquiries & Procurement</h3>
+            <p>info@indexbuildingsolutions.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 INDEX BUILDING SOLUTIONS // ALL SYSTEMS OPERATIONAL</p>
+    </div>
+  </footer>
+
+  <!-- Dynamic Particle Canvas Script -->
+  <script>
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const particleCount = 45;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.8,
+        vy: (Math.random() - 0.5) * 0.8,
+        size: Math.random() * 2 + 1
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < particles.length; i++) {
+        let p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.fillStyle = '#00f0ff';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          let p2 = particles[j];
+          let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+          if (dist < 140) {
+            ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 - dist / 140})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
